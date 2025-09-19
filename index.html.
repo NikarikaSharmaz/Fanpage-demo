@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>YourModelName — Premium Fanpage (Demo)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1020; --card:#0f1724; --muted:#9aa3b2; --accent:#2b9cff;
+  }
+  *{box-sizing:border-box;font-family:'Inter',system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+  body{margin:0;background:linear-gradient(180deg,#05060a 0%,var(--bg) 100%);color:#e6eef8;line-height:1.4}
+  .container{max-width:980px;margin:28px auto;padding:20px}
+  .hero{display:flex;gap:20px;align-items:center;padding:22px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+  .avatar{width:120px;height:120px;border-radius:999px;overflow:hidden;flex:0 0 120px;border:3px solid rgba(255,255,255,0.06)}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .meta h1{margin:0;font-size:24px;letter-spacing:0.4px}
+  .meta p{margin:8px 0;color:var(--muted)}
+  .cta{margin-top:10px}
+  .btn{background:var(--accent);color:#051428;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;display:inline-block}
+  .socials{display:flex;gap:8px;margin-top:12px}
+  .socials a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.01)}
+  
+  /* Gallery */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+  .card{position:relative;border-radius:12px;overflow:hidden;background:var(--card);min-height:120px}
+  .card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+  .card:hover img{transform:scale(1.05)}
+  .locked::after{content:"🔒 Subscribe to view";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.45);padding:10px 14px;border-radius:8px;font-weight:700;color:#fff}
+  .locked img{filter:blur(6px) brightness(.8)}
+  .badge{position:absolute;right:8px;top:8px;background:rgba(0,0,0,0.45);padding:6px 8px;border-radius:8px;font-size:12px}
+  
+  /* Plans */
+  .plans{display:flex;gap:12px;margin-top:22px}
+  .plan{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:14px;border-radius:12px;flex:1;text-align:center}
+  .plan h3{margin:0 0 6px}
+  .plan p{margin:0;color:var(--muted)}
+  
+  /* Pay section */
+  .pay{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(43,156,255,0.03), rgba(43,156,255,0.01));display:grid;gap:8px}
+  .pay pre{background:transparent;color:#dff0ff;padding:10px;border-radius:8px;margin:0}
+  
+  /* Sticky subscribe button on mobile */
+  .sticky{position:fixed;left:20px;right:20px;bottom:20px;display:none;z-index:999}
+  @media(min-width:0px){
+    .sticky{display:block}
+    .container{padding-bottom:120px}
+  }
+  @media(min-width:900px){
+    .grid{grid-template-columns:repeat(3,1fr)}
+    .sticky{display:none}
+  }
+  
+  footer{margin-top:30px;color:var(--muted);font-size:13px;text-align:center}
+  a.ghost{color:var(--muted);text-decoration:none;background:transparent;padding:8px 10px;border-radius:8px}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero" role="banner">
+      <div class="avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=60" alt="profile"></div>
+      <div class="meta">
+        <h1>YourModelName</h1>
+        <p>Exclusive • Premium 18+ Content • Instant Access</p>
+        <div class="cta">
+          <a class="btn" href="#pay">Subscribe — Cancel Anytime</a>
+          <a class="ghost" href="#how" style="margin-left:8px">How it works</a>
+        </div>
+        <div class="socials" aria-hidden="true">
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Telegram</a>
+          <a href="#" target="_blank">Twitter</a>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Gallery">
+      <div class="grid" style="margin-top:18px">
+        <!-- visible teasers -->
+        <div class="card"><img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=800&q=60" alt="teaser1"></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1545996124-1b1b8c2f5c9d?w=800&q=60" alt="teaser2"></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1531123414780-f0b0f7a9d0b4?w=800&q=60" alt="teaser3"></div>
+
+        <!-- locked thumbnails -->
+        <div class="card locked"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=60" alt="locked1"><div class="badge">Premium</div></div>
+        <div class="card locked"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=60" alt="locked2"><div class="badge">Premium</div></div>
+        <div class="card locked"><img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=800&q=60" alt="locked3"><div class="badge">Premium</div></div>
+        <div class="card locked"><img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=800&q=60" alt="locked4"><div class="badge">Premium</div></div>
+        <div class="card locked"><img src="https://images.unsplash.com/photo-1520975698510-3f6a6b7b7b33?w=800&q=60" alt="locked5"><div class="badge">Premium</div></div>
+        <div class="card locked"><img src="https://images.unsplash.com/photo-1503264116251-35a269479413?w=800&q=60" alt="locked6"><div class="badge">Premium</div></div>
+      </div>
+    </section>
+
+    <section class="plans" aria-label="Plans">
+      <div class="plan">
+        <h3>1 Month</h3>
+        <p>₹299</p>
+      </div>
+      <div class="plan">
+        <h3>3 Months</h3>
+        <p>₹699</p>
+      </div>
+      <div class="plan">
+        <h3>VIP Lifetime</h3>
+        <p>₹2499</p>
+      </div>
+    </section>
+
+    <section id="how" style="margin-top:22px">
+      <h3 style="margin:0 0 8px">How it works</h3>
+      <p style="color:var(--muted);margin:0 0 12px">User clicks Subscribe → secure checkout (automatic) → after payment you will be added to a private Telegram channel for access.</p>
+    </section>
+
+    <section id="pay" class="pay" aria-label="Pay">
+      <h3 style="margin:0 0 6px">Secure Checkout (DEMO)</h3>
+      <p style="margin:0 0 6px;color:var(--muted)">This is a demo page. To enable real automatic payments use WooCommerce + Razorpay + InviteMember integration.</p>
+      <pre>UPI ID: yourupi@bank
+After payment, you would be auto-added to the private channel.
+(For demo: replace with real checkout integration)</pre>
+    </section>
+
+    <footer>
+      <p>All models 18+. Content intended for adults only. By subscribing you confirm you are 18+.</p>
+    </footer>
+  </div>
+
+  <div class="sticky"><a class="btn" href="#pay" style="width:100%;display:inline-block;text-align:center">Subscribe — ₹299 / month</a></div>
+</body>
+</html>
