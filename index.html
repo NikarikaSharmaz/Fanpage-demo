@@ -1,113 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Niharika Sharmaz | Premium Fanpage</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0d0d0d;
-      color: #fff;
-    }
-    .header {
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #000, #222);
-    }
-    .header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #1da1f2;
-    }
-    .header h1 {
-      margin: 15px 0 5px;
-      font-size: 26px;
-    }
-    .header p {
-      color: #aaa;
-      font-size: 14px;
-    }
-    .subscribe-btn {
-      background: #1da1f2;
-      color: #fff;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-    .subscribe-btn:hover {
-      background: #0d8ddb;
-    }
-    .links {
-      margin: 20px;
-      text-align: center;
-    }
-    .links a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #1da1f2;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-    .lock {
-      position: relative;
-    }
-    .lock::after {
-      content: "🔒 Subscribe to unlock";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0,0,0,0.6);
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-    .footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 12px;
-      color: #777;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Niharika Sharmaz — Premium Fanpage</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#04050a;
+    --panel:#0f1724;
+    --muted:#9aa3b2;
+    --accent:#2b9cff;
+    --glass: rgba(255,255,255,0.03);
+  }
+  *{box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+  body{margin:0;background:linear-gradient(180deg,#020212 0%,var(--bg) 100%);color:#eaf3ff;min-height:100vh}
+  .container{max-width:1100px;margin:18px auto;padding:18px;}
+
+  /* COVER */
+  .cover{height:240px;border-radius:12px;overflow:hidden;background:#111;position:relative;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(.95)}
+  .hero{display:flex;gap:18px;align-items:center;padding:18px;transform:translateY(-80px)}
+  .avatar{width:120px;height:120px;border-radius:999px;border:4px solid rgba(255,255,255,0.07);overflow:hidden;background:#0b1220;flex:0 0 120px}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .meta h1{margin:0;font-size:24px;display:flex;align-items:center;gap:8px}
+  .verified{width:20px;height:20px;display:inline-block}
+  .meta p{margin:6px 0;color:var(--muted);font-size:14px}
+  .actions{margin-top:10px;display:flex;gap:10px;align-items:center}
+  .btn{background:var(--accent);color:#051428;padding:10px 16px;border-radius:999px;font-weight:700;text-decoration:none;display:inline-block}
+  .ghost{background:transparent;padding:8px 10px;border-radius:10px;color:var(--muted);text-decoration:none;border:1px solid rgba(255,255,255,0.03)}
+  .stats{display:flex;gap:18px;margin-top:10px;color:var(--muted);font-size:14px}
+
+  /* layout */
+  .layout{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:-40px}
+  @media(max-width:980px){ .layout{grid-template-columns:1fr;padding:0 12px} .hero{flex-direction:column;align-items:flex-start} }
+
+  /* tabs */
+  .tabs{display:flex;gap:8px;margin-top:8px}
+  .tab{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600;cursor:pointer}
+
+  /* gallery grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  @media(max-width:980px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  .card{position:relative;border-radius:12px;overflow:hidden;background:var(--panel);min-height:160px}
+  .card img, .card video{width:100%;height:100%;object-fit:cover;display:block}
+  .card:hover img{transform:scale(1.03);transition:transform .45s}
+  .locked::after{content:"🔒 Subscribe to unlock";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.56);padding:10px 12px;border-radius:8px;color:#fff;font-weight:700}
+  .locked img, .locked video{filter:blur(6px) brightness(.75)}
+  .badge{position:absolute;right:8px;top:8px;background:rgba(0,0,0,0.45);padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted)}
+  .duration{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,0.5);padding:6px 8px;border-radius:8px;font-size:12px}
+
+  /* side card */
+  .card-side{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:14px;border-radius:12px}
+  .plan{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+  .plan:last-child{border-bottom:none}
+  .pay{margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(43,156,255,0.03), rgba(43,156,255,0.01));color:#dff6ff}
+  .small{color:var(--muted);font-size:13px}
+
+  footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+  /* sticky button for mobile */
+  .sticky{position:fixed;left:16px;right:16px;bottom:16px;display:none;z-index:999}
+  @media(max-width:900px){ .sticky{display:block} .hero{transform:none} .layout{transform:none} }
+
+  /* minor */
+  .muted{color:var(--muted)}
+</style>
 </head>
 <body>
-  <div class="header">
-    <img src="https://via.placeholder.com/120" alt="Profile">
-    <h1>Niharika Sharmaz</h1>
-    <p>Exclusive • Premium • Instant Access</p>
-    <button class="subscribe-btn">Subscribe - Cancel Anytime</button>
-    <div class="links">
-      <a href="https://t.me/Niharikasharmaz">Telegram</a> |
-      <a href="#">Instagram</a> |
-      <a href="#">Twitter</a>
+  <div class="container">
+    <!-- COVER -->
+    <div class="cover" id="coverWrap">
+      <!-- Replace cover.jpg with your uploaded cover filename -->
+      <img id="coverImg" src="cover.jpg" alt="cover image" onerror="this.src='https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?w=1600&q=60'">
     </div>
+
+    <!-- HERO / PROFILE -->
+    <section class="hero" aria-label="profile hero">
+      <div class="avatar">
+        <!-- Replace profile.jpg with your uploaded profile filename -->
+        <img id="profileImg" src="profile.jpg" alt="profile" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&q=60'">
+      </div>
+
+      <div class="meta">
+        <h1>
+          Niharika Sharmaz
+          <!-- verified tick -->
+          <svg class="verified" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" style="margin-left:6px">
+            <circle cx="12" cy="12" r="10" fill="#2b9cff"/>
+            <path d="M9.2 12.6l1.8 1.8 3.8-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </h1>
+
+        <p class="small">Exclusive • Premium 18+ Content • Instant Access</p>
+
+        <div class="actions">
+          <a class="btn" href="#pay" id="subscribeBtn">Subscribe — Cancel Anytime</a>
+          <a class="ghost" href="https://t.me/Niharikasharmaz" target="_blank">Message</a>
+          <div style="margin-left:8px;color:var(--muted);font-weight:600;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.01)">Verified</div>
+        </div>
+
+        <div class="stats" aria-hidden="true">
+          <div><strong id="subsCount">34</strong> subscribers</div>
+          <div><strong id="postsCount">48</strong> posts</div>
+          <div><strong id="mediaCount">9</strong> media</div>
+        </div>
+
+        <div class="tabs" role="tablist" style="margin-top:10px">
+          <div class="tab" data-tab="photos" onclick="switchTab('photos')">Photos</div>
+          <div class="tab" data-tab="videos" onclick="switchTab('videos')">Videos</div>
+          <div class="tab" data-tab="about" onclick="switchTab('about')">About</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+      <!-- left: dynamic content -->
+      <main>
+        <!-- PHOTOS TAB -->
+        <section id="photosTab">
+          <div class="grid" id="photosGrid">
+            <!-- visible teasers (replace filenames after upload) -->
+            <div class="card"><img src="photo1.jpg" alt="photo1" onerror="this.src='https://images.unsplash.com/photo-1554151228-14d9def656e4?w=900&q=60'"></div>
+            <div class="card"><img src="photo2.jpg" alt="photo2" onerror="this.src='https://images.unsplash.com/photo-1545996124-1b1b8c2f5c9d?w=900&q=60'"></div>
+            <div class="card"><img src="photo3.jpg" alt="photo3" onerror="this.src='https://images.unsplash.com/photo-1531123414780-f0b0f7a9d0b4?w=900&q=60'"></div>
+
+            <!-- locked previews -->
+            <div class="card locked"><img src="photo_locked1.jpg" alt="locked1" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&q=60'"><div class="badge">Premium</div></div>
+            <div class="card locked"><img src="photo_locked2.jpg" alt="locked2" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&q=60'"><div class="badge">Premium</div></div>
+            <div class="card locked"><img src="photo_locked3.jpg" alt="locked3" onerror="this.src='https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=900&q=60'"><div class="badge">Premium</div></div>
+          </div>
+        </section>
+
+        <!-- VIDEOS TAB -->
+        <section id="videosTab" style="display:none">
+          <div class="grid" id="videosGrid">
+            <!-- video cards: poster is thumbnail, video file is in repo -->
+            <div class="card locked">
+              <video muted playsinline poster="video_thumb1.jpg" onerror="this.poster='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&q=60'"></video>
+              <div class="badge">Premium</div>
+              <div class="duration">00:30</div>
+            </div>
+
+            <div class="card locked">
+              <video muted playsinline poster="video_thumb2.jpg"></video>
+              <div class="badge">Premium</div>
+              <div class="duration">00:45</div>
+            </div>
+
+            <div class="card locked">
+              <video muted playsinline poster="video_thumb3.jpg"></video>
+              <div class="badge">Premium</div>
+              <div class="duration">01:20</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT TAB -->
+        <section id="aboutTab" style="display:none">
+          <div style="padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)">
+            <h3 style="margin-top:0">About Niharika</h3>
+            <p class="muted">Premium model sharing exclusive photos & videos. Daily updates, private chats, and special VIP content for subscribers.</p>
+            <p class="muted">Contact / support: <a href="mailto:contact@yourdomain.com" class="muted link">contact@yourdomain.com</a></p>
+          </div>
+        </section>
+      </main>
+
+      <!-- right: pricing + CTA -->
+      <aside>
+        <div class="card-side">
+          <h3 style="margin-top:0">Plans</h3>
+          <div class="plan">
+            <div><strong>1 Month</strong><br><small class="muted">Monthly subscription</small></div>
+            <div style="text-align:right"><div style="font-weight:800">₹299</div><small class="muted">Auto renew</small></div>
+          </div>
+          <div class="plan">
+            <div><strong>3 Months</strong><br><small class="muted">Best value</small></div>
+            <div style="text-align:right"><div style="font-weight:800">₹699</div><small class="muted">Save</small></div>
+          </div>
+          <div class="plan">
+            <div><strong>VIP Lifetime</strong><br><small class="muted">One-time</small></div>
+            <div style="text-align:right"><div style="font-weight:800">₹2499</div><small class="muted">Lifetime</small></div>
+          </div>
+
+          <div class="pay" id="pay">
+            <h4 style="margin:0 0 8px">Secure Checkout (DEMO)</h4>
+            <p class="muted" style="margin:0 0 8px">For full automation use WordPress + WooCommerce + Razorpay + InviteMember. For demo/manual: pay by UPI and send screenshot to Telegram.</p>
+            <pre style="background:transparent;color:#dff6ff;padding:8px;border-radius:8px;margin:0;white-space:pre-wrap">
+UPI ID: yourupi@bank
+After payment contact: @Niharikasharmaz on Telegram
+(Replace with real checkout integration later)
+            </pre>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p>All models 18+. Content intended for adults only. By subscribing you confirm you are 18+.</p>
+    </footer>
   </div>
 
-  <div class="gallery">
-    <div class="lock"><img src="https://via.placeholder.com/300x400" alt="Locked"></div>
-    <div class="lock"><img src="https://via.placeholder.com/300x400" alt="Locked"></div>
-    <div class="lock"><img src="https://via.placeholder.com/300x400" alt="Locked"></div>
-    <div class="lock"><img src="https://via.placeholder.com/300x400" alt="Locked"></div>
-    <div class="lock"><img src="https://via.placeholder.com/300x400" alt="Locked"></div>
+  <div class="sticky">
+    <a class="btn" href="#pay" style="width:100%;display:inline-block;text-align:center">Subscribe — ₹299 / month</a>
   </div>
 
-  <div class="footer">
-    <p>All models 18+. Content intended for adults only.<br>© 2025 Niharika Sharmaz Fanpage</p>
-  </div>
+<script>
+  // Tab switching
+  function switchTab(tab){
+    document.getElementById('photosTab').style.display = tab === 'photos' ? '' : 'none';
+    document.getElementById('videosTab').style.display = tab === 'videos' ? '' : 'none';
+    document.getElementById('aboutTab').style.display = tab === 'about' ? '' : 'none';
+    // simple active tab style (visual)
+    document.querySelectorAll('.tab').forEach(t=> t.style.background = 'rgba(255,255,255,0.02)');
+    document.querySelectorAll('.tab').forEach(t=> t.style.color = 'var(--muted)');
+    document.querySelector('[data-tab="'+tab+'"]').style.background = 'linear-gradient(90deg,var(--accent),#4fb8ff)';
+    document.querySelector('[data-tab="'+tab+'"]').style.color = '#02102a';
+  }
+  // default
+  switchTab('photos');
+
+  // NOTE: Now images/videos are placeholders. To use your own files:
+  // 1) Upload files to repo (Add file → Upload files). Example filenames used in this HTML:
+  //    cover.jpg, profile.jpg, photo1.jpg, photo2.jpg, photo3.jpg,
+  //    photo_locked1.jpg, photo_locked2.jpg, photo_locked3.jpg,
+  //    video_thumb1.jpg, video_thumb2.jpg, video_thumb3.jpg,
+  //    video1.mp4 (optional, for later integration)
+  // 2) If you upload video files and want to enable preview-play for unlocked users,
+  //    replace the <video> elements with <video src="video1.mp4" controls poster="video_thumb1.jpg"></video>
+  // 3) Commit changes and refresh your GitHub Pages link.
+</script>
 </body>
 </html>
